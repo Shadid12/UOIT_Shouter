@@ -1,5 +1,11 @@
 <%= simple_form_for @message do |f| %>
-	<%= f.input :title, label: "Message Title" %>
+	<%= f.input :title, label: "Titles can be cool" %>
 	<%= f.input :description %>
-	<%= f.button :submit %>
+	<%= f.input :avatar, label: 'Add a pic', as: :file %>
+	<%= f.input :tag_list, label: "Tag/" %>
+	<%= f.button :submit, 'Shout now!!!' %>
+	
 <% end %>
+
+
+		

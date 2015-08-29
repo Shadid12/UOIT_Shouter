@@ -2,8 +2,11 @@
 	<div class="col-md-4">
 		<div class="message">
 			<h2 class="message-title"><%= message.title %></h2>
-			<%= link_to "View Message", message, class: "btn-custom" %>
+			<%= image_tag(message.avatar.url(:thumb)) %>
+			<%= link_to "See what's up", message, class: "btn-custom" %>
 		</div>
+		
+		<p>Tags: <%= raw message.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 	</div>
 <% end %>
 

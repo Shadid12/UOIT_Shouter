@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
 	before_action :find_message, only: [:create, :edit, :update, :destroy]
 	before_action :find_comment, only: [:edit, :update, :destroy]
-
+	before_action :authenticate_user!
+	before_action :authorized_user, only: [:edit, :update, :destroy]
+	
 	def create
 		# creates a comment with respect to the message
 		@comment = @message.comments.create(comment_params)
@@ -43,5 +45,10 @@ class CommentsController < ApplicationController
 		def find_comment
 			@comment = @message.comments.find(params[:id])
 		end
+		
+	def authorized_user
+      		@comment = current_user.comments.find_by(id: params[:id])
+      		redirect_to root_path, notice: "Not authorized to edit this link" if @comment.nil?
+    	end
 
 end
