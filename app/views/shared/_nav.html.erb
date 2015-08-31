@@ -1,0 +1,50 @@
+<header class="header header-two">
+  <div class="header-wrapper">
+	<div class="container">
+	  <div class="row">
+
+
+    <!--LIve ICON-->
+      <div class="col-xs-6 col-md-2 col-lg-3 logo-box">
+        <div class="logo">
+          <a class="livicon block" data-n="rocket" data-s="48" data-op="0" data-c="#738d00" data-hc="0"></a>
+        </div>
+      </div>
+      
+	
+		<div class="col-xs-6 col-md-10 col-lg-9 right-box">
+		  <div class="right-box-wrapper">
+			<div class="primary">
+			  <div class="navbar navbar-default" role="navigation">
+				<nav class="collapse collapsing navbar-collapse">
+				  <ul class="nav navbar-nav navbar-center">
+
+					<li>
+					    <%= link_to "All Shouts", root_path, class: "scroll" %>
+					</li>
+					
+    					<% if user_signed_in? %>
+            					<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+            				<% else %>	
+            					<li><%= link_to "Log In", new_user_session_path %></li>
+            					<li><%= link_to "Sign Up", new_user_registration_path %></li>
+            			<% end %>
+            			
+            			<% if user_signed_in? %>
+            				<li><%= link_to "Make a Shout!!", new_message_path, class: "scroll" %></li>
+            			<% else %>
+            			    <li><small>Sign in or Sign up to make a shout!!</small></li>
+            			<% end %>
+    					
+				  </ul>
+				</nav>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		
+		
+	  </div>
+	</div>
+  </div>
+</header>

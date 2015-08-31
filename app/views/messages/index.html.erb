@@ -2,8 +2,15 @@
 	<div class="col-md-4">
 		<div class="message">
 			<h2 class="message-title"><%= message.title %></h2>
+			
 			<%= image_tag(message.avatar.url(:thumb)) %>
-			<%= link_to "See what's up", message, class: "btn-custom" %>
+			<%= link_to "Read", message, class: "btn btn-info livicon", 
+			:"data-n"=>"rocket", :"data-s"=>"48", :"data-op"=>"0", :"data-c"=>"#EB3118", :"data-hc"=>"0" %>
+				
+			
+			
+			
+			
 		</div>
 		
 		<p>Tags: <%= raw message.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>

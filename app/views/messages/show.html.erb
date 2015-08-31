@@ -18,6 +18,19 @@
 		<%= render 'comments/form' %>
 		
 		
+		
+		<!--liking with facebook-->
+		
+		
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1609960025945892";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
+		
+		
 		<!--shouting with facebook-->
 		<div id="fb-root"></div>
 		<script>(function(d, s, id) {
@@ -27,10 +40,12 @@
 		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=1609960025945892";
 		  fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));</script>
-		
-    
-		
+	
 		<div class="fb-comments" data-href= <%= request.original_url %> data-numposts="5"></div>
+		
+		<div class="fb-like" data-href="https://shouter-uoit-showcase.c9.io/" 
+		data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
+		
 		
 		<!-- Add a conditional so that the 'edit' and 'destroy' links only appear for the user who created the message. -->
 		<div class="links btn-group">
